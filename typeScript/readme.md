@@ -36,4 +36,25 @@ module.exports = { add };
 export function add(a: number, b: number): number;
 ```
 This setup allows TypeScript to understand the types used in the add function, even though the implementation is in JavaScript.
- 
+
+## Index Access Types
+
+Index access types allow you to access the type of a property in an object or interface using its key. This is useful when you want to reuse or reference a specific type from an existing structure.
+
+#### Example:
+```ts
+interface Contact {
+  id: number;
+  name: string;
+  status: 'active' | 'inactive' | 'pending';
+}
+
+type ContactId = Contact['id']; // The type of ContactId is number
+type ContactStatus = Contact['status']; // The type of ContactStatus is 'active' | 'inactive' | 'pending'
+```
+
+In this example:
+- `Contact['id']` retrieves the type of the `id` property from the `Contact` interface, which is `number`.
+- `Contact['status']` retrieves the type of the `status` property, which is a union type (`'active' | 'inactive' | 'pending'`).
+
+Index access types are a powerful feature in TypeScript that allow you to dynamically reference types from existing structures.
