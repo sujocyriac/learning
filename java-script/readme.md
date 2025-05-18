@@ -173,3 +173,6 @@ console.log(user);
 - **Immutability**: Ensures the object cannot be modified.
 - **Shallow Freeze**: Only affects the immediate properties.
 - **Deep Freeze**: Requires a recursive approach to freeze nested objects.
+
+
+> read more about: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
