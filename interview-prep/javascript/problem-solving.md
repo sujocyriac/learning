@@ -144,4 +144,52 @@ document.getElementById("child").addEventListener("click", function (e) {
 - `stopPropagation()` prevents further bubbling **after** the current event handler.
 - Delegated listeners on parents still receive the event because they are part of the bubbling phase.
 
+
 ---
+
+## 💡 Q4: Design a once(fn) Function for Single Invocation using closure.
+
+Question:
+
+> Implement a function once(fn) that takes another function fn and returns a new function that allows fn to be executed only once. No matter how many times the returned function is called, fn should only run the first time. Any subsequent calls should return the result from the first invocation.
+
+```js
+function once(fn) {
+  let isCalled = false;
+  let result;
+
+  return function(...args) {
+      if(!isCalled) {
+        result = fn.apply(this, args);
+        isCalled = true
+      }
+
+      return result;
+  }
+}
+```
+
+examples usage
+
+```js
+const sayHello = once(()=> `hello world a ${Math.floor(Math.random()*100)} times`)
+
+console.log(sayHello()); // outputs: hello world a `n` times 
+console.log(sayHello()); // outputs: hello world a `n` times
+```
+
+examples usage with context modifier
+
+```js
+const data = {
+  name: "Sujo",
+  sayName() {
+    return this.name
+  }
+}
+
+const printMyName = once(data.sayName.bind(data));
+
+console.log(printMyName()); // Sujo
+console.log(printMyName()); // Sujo
+```
