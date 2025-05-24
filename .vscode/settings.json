@@ -1,0 +1,21 @@
+{
+    "github.copilot.enable": {
+         "*":true
+    },
+    "github.copilot.advanced": {
+
+        "scminput": {
+            "enabled": true,
+            "scminput.enable": true,
+            "scminput.enableOnStartup": true,
+            "scminput.enableOnCommit": true,
+            "scminput.enableOnPush": true,
+            "scminput.enableOnPullRequest": true
+        }
+    },
+    "github.copilot.chat.followUps": "always",
+    "github.copilot.chat.scopeSelection": true,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "github.copilot.nextEditSuggestions.fixes": true,
+    "github.copilot.chat.codesearch.enabled": true
+}
