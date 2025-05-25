@@ -19,7 +19,7 @@
     "github.copilot.nextEditSuggestions.fixes": true,
     "github.copilot.chat.codesearch.enabled": true,
     "workbench.colorTheme": "GitHub Dark",
-    "workbench.iconTheme": "vscode-icons"
+    "workbench.iconTheme": "helium-icon-theme"
 }
 
  
