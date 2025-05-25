@@ -17,5 +17,9 @@
     "github.copilot.chat.scopeSelection": true,
     "github.copilot.nextEditSuggestions.enabled": true,
     "github.copilot.nextEditSuggestions.fixes": true,
-    "github.copilot.chat.codesearch.enabled": true
+    "github.copilot.chat.codesearch.enabled": true,
+    "workbench.colorTheme": "GitHub Dark",
+    "workbench.iconTheme": "vscode-icons"
 }
+
+ 
