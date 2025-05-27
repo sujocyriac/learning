@@ -114,6 +114,8 @@ console.log("Chocolate Ice cream with White Froast ingredients:", chocolateIceCr
 
 ---
 
+> In React, decorator patterns are used with HOC (Higher-Order Components) to enhance components with additional functionality, such as logging, error handling, or performance optimizations.
+
 ## 📚 Further Reading
 - [Refactoring Guru: Decorator Pattern](https://refactoring.guru/design-patterns/decorator)
 - [MDN Web Docs: Decorators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Class_fields#decorators)

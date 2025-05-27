@@ -45,6 +45,13 @@ JavaScript design patterns generally fall into three main categories:
 - **In JavaScript:** You might use this for a global configuration object or a database connection, where you only want one instance running to manage resources.
 - **Learn more:** [See Singleton Pattern details](./singleton-pattern.md)
 
+** 🔨 Builder Pattern:**
+- **Idea:** Allows you to construct complex objects step by step, separating the construction process from the final representation.
+- **Analogy:** A house builder who constructs a house by adding rooms, windows, and doors one at a time, rather than building the entire house in one go.
+- **In JavaScript:** You might have a `ComputerBuilder` class that allows you to add components like CPU, memory, and graphics card one by one before finally building the complete computer object.
+
+- **Learn more:** [See Builder Pattern details](./builder-pattern.md)
+
 ---
 
 ### 2. 🏗️ Structural Patterns: How Objects Are Composed
@@ -69,6 +76,8 @@ JavaScript design patterns generally fall into three main categories:
 - **Idea:** Allows objects with incompatible interfaces to collaborate. It acts as a translator.
 - **Analogy:** A universal travel adapter. You have a device with a plug that doesn't fit the wall socket, so you use an adapter to make them compatible.
 - **In JavaScript:** You might have an old library that expects data in one format, but your new code provides it in another. An adapter function can convert the data so they can work together.
+
+- **Learn more:** [See Adapter Pattern details](./adapter-pattern.md)
 
 ---
 
