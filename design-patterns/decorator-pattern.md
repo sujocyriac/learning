@@ -14,17 +14,27 @@ The Decorator Pattern is a structural design pattern that allows you to dynamica
 
 ```js
 // Base component
-function coffee() {
-    return "coffee";
+class Coffee {
+  cost() {
+    return 5; // Base cost of coffee
+  }
 }
 
-function withMilkDecorator(fn) {
-    return fn() + " with milk";
+// Decorator that adds milk
+class MilkDecorator {
+  constructor(coffee) {
+    this.coffee = coffee; // Store the original coffee object
+  }
+  cost() {
+    // Add the cost of milk to the original coffee cost
+    return this.coffee.cost() + 2;
+  }
 }
 
-
-console.log(coffee()); // Output: coffee
-console.log(withMilkDecorator(coffee)); // Output: coffee with milk
+// Usage
+let myCoffee = new Coffee(); // Create a plain coffee
+myCoffee = new MilkDecorator(myCoffee); // Decorate it with milk
+console.log(myCoffee.cost()); // 7
 ```
 
 ---
