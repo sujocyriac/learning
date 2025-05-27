@@ -87,3 +87,49 @@ JavaScript design patterns generally fall into three main categories:
 - **Learn more:** [See Decorator Pattern details](./decorator-pattern.md)
 
 ---
+
+### 3. 🤝 Behavioral Patterns: How Objects Interact
+
+> **Analogy:** How different parts of a team communicate and work together to achieve a common goal.
+
+**What they do:**
+- Focus on how objects interact and communicate with each other.
+- Define communication patterns between objects, making sure they can talk to each other effectively and flexibly, without being too tightly coupled.
+
+**Why they're useful:**
+- 🤝 You need to define how objects communicate without them knowing too much about each other.
+- 🔄 You want to encapsulate an algorithm and make it interchangeable.
+- 🛎️ You want to react to events happening in other parts of your application.
+
+---
+
+#### ✨ Simple Examples
+
+**👀 Observer Pattern:**
+- **Idea:** Defines a one-to-many dependency between objects so that when one object (the "subject") changes state, all its dependents (the "observers") are notified and updated automatically.
+- **Analogy:** A newspaper subscription. You subscribe to a newspaper (you are the observer), and when a new edition is published (the subject changes state), it's delivered to you automatically.
+- **In JavaScript:** This is very common in UI development. When a user clicks a button (subject), several other parts of the application (observers) might need to react to that click (e.g., update a counter, show a message, send data to a server). Event listeners are a common implementation of this.
+
+- **Learn more:** [See Observer Pattern details](./observer-pattern.md)
+
+**🔄 Command Pattern:**
+- **Idea:** Encapsulates a request as an object, thereby allowing for parameterization of clients with queues, requests, and operations.
+- **Analogy:** A remote control for a TV. Each button on the remote is a command that can be executed (like changing the channel or adjusting the volume) without the remote needing to know how the TV processes those commands.
+- **In JavaScript:** You might have a set of functions that perform different actions (like saving a file, loading data, etc.). Each action can be encapsulated in a command object, allowing you to queue them up or execute them later.
+- **Learn more:** [See Command Pattern details](./command-pattern.md)
+
+
+**🧠 Strategy Pattern:**
+- **Idea:** Defines a family of algorithms, encapsulates each one, and makes them interchangeable. This lets the algorithm vary independently from clients that use it.
+- **Analogy:** Different ways to travel to a destination (car, train, plane). You can choose a different "strategy" for your journey depending on your needs (speed, cost, comfort) without changing the core idea of "traveling."
+- **In JavaScript:** You might have different validation rules for a form field (e.g., validate as email, validate as number, validate as required). You can define each validation as a separate strategy and apply the appropriate one dynamically.
+- **Learn more:** [See Strategy Pattern details](./strategy-pattern.md)
+
+---
+
+## 🏁 In Conclusion
+
+Design patterns are powerful tools that help you write cleaner, more maintainable, and more scalable JavaScript code. By understanding these common "blueprints," you can solve recurring problems elegantly and communicate your design ideas more effectively with other developers. They encourage good practices and lead to more robust software architectures.
+
+---
+
