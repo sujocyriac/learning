@@ -30,7 +30,73 @@ The `tsc` command compiles TypeScript code using the `tsconfig.json` file found 
 - `compilerOptions` specifies how the code should be compiled.
 - `include` tells the compiler which files to process.
 
+Some useful compiler options include:
+
+- `declaration` (boolean): If enabled, generates a declaration (`.d.ts`) file for each TypeScript file, providing type information for consumers.
+- `module` (string): Specifies the module system for the output files, such as `commonjs`, `esnext`, or `umd`. This changes how the generated JavaScript files handle imports and exports.
+
 ---
+
+## Generic vs Non-Generic Types
+
+Generics in TypeScript enable you to create flexible, reusable components that work with any data type while preserving type safety. With generics, you can define functions, classes, and interfaces that operate on a variety of types without losing the benefits of static typing.
+
+Generics use angle brackets (`<T>`) to specify a placeholder type, which is provided when the component is used. This approach allows your code to adapt to different data types in a type-safe manner.
+
+**Example: Generic Function**
+```ts
+function identity<T>(arg: T): T {
+  return arg;
+}
+```
+In this example, `identity` is a generic function that returns the same type as its input, regardless of what that type is.
+
+Non-generic types or literals, on the other hand, are fixed to specific types and cannot adapt to different data types.
+
+**Example: Non-Generic Function**
+```ts
+function double(x: number): number {
+  return x * 2;
+}
+```
+In this example, `double` only works with `number` types. If you try to pass a value of another type, TypeScript will raise a type error.
+
+**Example: Literal Type**
+```ts
+type Direction = 'up' | 'down' | 'left' | 'right';
+```
+Here, `Direction` is a union of string literal types. Only these specific string values are allowed.
+
+
+### 🔄 Type Casting
+
+Type casting in TypeScript allows you to tell the compiler to treat a value as a specific type. This is useful when you know more about the value's type than TypeScript can infer, such as when working with values from external sources or when narrowing types.
+
+There are two common syntaxes for type casting:
+
+1. **Angle-bracket syntax** (not allowed in `.tsx` files):
+  ```ts
+  let someValue: unknown = "hello";
+  let strLength: number = (<string>someValue).length;
+  ```
+
+2. **`as` syntax** (recommended, especially in React projects):
+  ```ts
+  let someValue: unknown = "hello";
+  let strLength: number = (someValue as string).length;
+  ```
+
+Type casting does not change the runtime type of a value—it only affects how TypeScript checks types at compile time. Use casting carefully, as incorrect casts can lead to runtime errors.
+
+**Example: Casting to a more specific type**
+```ts
+function handle(input: string | number) {
+  if (typeof input === "string") {
+   // TypeScript knows input is a string here
+   console.log((input as string).toUpperCase());
+  }
+}
+```
 
 ### 📘 What Is a `.d.ts` File?
 
