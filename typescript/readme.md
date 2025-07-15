@@ -147,3 +147,32 @@ type ContactStatus = Contact['status']; // 'active' | 'inactive' | 'pending'
 - `Contact['status']` gets the type of the `status` property (a union type).
 
 Index access types are a powerful feature in TypeScript for dynamically referencing types from existing structures.
+
+
+### 🗝️ Index Signatures
+
+An **index signature** in TypeScript allows you to define the shape of objects with dynamic keys, where the key names are not known ahead of time. This is useful when you want to describe objects that can have any number of properties, as long as their keys and values follow a specific structure.
+
+**Example: Nested Index Signature**
+```ts
+interface PhoneTypes {
+  [outerKey: string]: {
+    [innerKey: string]: { a: number; b: string }
+  }
+}
+
+const x: PhoneTypes = {
+  anyData: {
+    someData: {
+      a: 2,
+      b: "ss"
+    }
+  }
+};
+
+console.log(x);
+```
+
+In this example:
+- `PhoneTypes` describes an object where each property (like `anyData`) is itself an object with string keys (like `someData`), and each of those properties is an object with properties `a` (number) and `b` (string).
+- This pattern is helpful for representing deeply nested or dynamic data
