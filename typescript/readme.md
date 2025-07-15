@@ -176,3 +176,40 @@ console.log(x);
 In this example:
 - `PhoneTypes` describes an object where each property (like `anyData`) is itself an object with string keys (like `someData`), and each of those properties is an object with properties `a` (number) and `b` (string).
 - This pattern is helpful for representing deeply nested or dynamic data
+
+---
+Here are some examples to illustrate TypeScript's type inference and array/object typing:
+
+```js
+const x = [12, 10];
+// x is inferred as number[]
+
+const users = [{ name: "user-1" }, { name: "user-2" }];
+// users is inferred as { name: string }[]
+
+type ArrayOfObj = { [key: string]: number }[];
+
+const data: ArrayOfObj = [{ dd: 2 }];
+// data is inferred as { [key: string]: number }[]
+```
+
+### 🧩 Tuples
+
+Tuples in TypeScript are special arrays that allow you to specify the exact number and types of elements in the array. Each element can have a different type, making tuples useful for representing structured data with a fixed format.
+
+```ts
+type MyArray = readonly [string?, number?];
+
+const x: MyArray = ["dsdsd", 1];
+
+// The following line will cause an error because the tuple is readonly and has a fixed
+```
+the `readonly` modifier prevents modification of the tuple after its creation, ensuring that the structure remains consistent.
+
+example of 2d array:
+
+```ts
+type My3DArray = [string, number][][];
+
+const x: My3DArray = [[["sd", 2]]];
+```
