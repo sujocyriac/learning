@@ -213,3 +213,29 @@ type My3DArray = [string, number][][];
 
 const x: My3DArray = [[["sd", 2]]];
 ```
+
+### 🏗️ Structural vs. Nominal Typing
+
+TypeScript uses **structural typing** as its core type system. This means that type compatibility is determined by the actual shape and structure of the types (i.e., the properties and their types), rather than by explicit declarations or names. If two types have the same structure, they are considered compatible—even if they were declared separately.
+
+This approach allows for greater flexibility and code reuse, as you can easily substitute objects with matching shapes, regardless of their declared type names.
+
+**Nominal typing**, by contrast, requires types to be explicitly declared and matched by name, which is more restrictive and less common in TypeScript. Some other languages (like Java or C#) use nominal typing.
+
+**Example:**
+```ts
+interface Point {
+  x: number;
+  y: number;
+}
+
+interface Coordinate {
+  x: number;
+  y: number;
+}
+
+const a: Point = { x: 1, y: 2 };
+const b: Coordinate = a; // Allowed in TypeScript due to structural typing
+```
+
+In this example, `Point` and `Coordinate` have the same structure, so you can assign one to the other without error.
