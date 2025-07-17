@@ -239,3 +239,79 @@ const b: Coordinate = a; // Allowed in TypeScript due to structural typing
 ```
 
 In this example, `Point` and `Coordinate` have the same structure, so you can assign one to the other without error.
+
+> Making a mental model that types are a set of allowed values can help you understand how TypeScript's type system works. Instead of thinking about types as rigid contracts, consider them as flexible templates that describe the shape of data. This perspective can make it easier to work with complex types and leverage TypeScript's powerful type inference capabilities.
+
+### 🔗 Union and Intersection Types
+
+Union and intersection types are advanced features in TypeScript that let you combine multiple types to create new, flexible type definitions.
+
+- **Union Types (`|`)** allow a value to be one of several types. This is useful when a variable or parameter can accept multiple types.
+  
+  **Example:**
+  ```ts
+  type Status = 'active' | 'inactive' | 'pending';
+  let currentStatus: Status = 'active'; // Only these values are allowed
+
+  function printId(id: number | string) {
+    console.log('ID:', id);
+  }
+  ```
+  Here, `Status` can be any of the specified string literals, and `printId` accepts either a number or a string.
+
+- **Intersection Types (`&`)** combine multiple types into one, requiring that a value satisfy all the combined types. This is useful for merging interfaces or types.
+  
+  **Example:**
+  ```ts
+  interface Person {
+    name: string;
+  }
+  interface Employee {
+    employeeId: number;
+  }
+  type Staff = Person & Employee;
+
+  const staffMember: Staff = {
+    name: 'Alice',
+    employeeId: 123
+  };
+  ```
+  Here, `Staff` must have both the properties from `Person` and `Employee`.
+
+Union and intersection types help you model complex data structures and write more expressive, type-safe code in TypeScript.
+
+
+
+type wholeNumbersTillFive = 1 | 2 | 3 | 4 | 5
+type eventNumbersTillFive = 2 | 4 | 6
+
+let numValue: wholeNumbersTillFive & eventNumbersTillFive
+
+numValue = 8 as wholeNumbersTillFive & eventNumbersTillFive
+
+#### Example: Intersection of Union Types
+
+```ts
+// Define two union types:
+type WholeNumbersTillFive = 1 | 2 | 3 | 4 | 5;
+type EvenNumbersTillSix = 2 | 4 | 6;
+
+// Intersection type:
+let numValue: WholeNumbersTillFive & EvenNumbersTillSix;
+```
+
+Here, `WholeNumbersTillFive` is the set {1, 2, 3, 4, 5} and `EvenNumbersTillSix` is the set {2, 4, 6}. The intersection type `WholeNumbersTillFive & EvenNumbersTillSix` represents values that are present in both sets. In this case, only `2` and `4` are valid values for `numValue`.
+
+If you try to assign a value outside the intersection, TypeScript will raise a type error:
+
+```ts
+numValue = 8 as WholeNumbersTillFive & EvenNumbersTillSix; // ❌ Invalid: 8 is not in either set
+numValue = 2; // ✅ Valid
+numValue = 4; // ✅ Valid
+numValue = 6; // ❌ Invalid: 6 is not in WholeNumbersTillFive
+```
+
+**Summary:**
+- The intersection of union types results in a type that only allows values present in both unions.
+- This is useful for narrowing down possible values and enforcing stricter type constraints.
+
