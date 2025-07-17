@@ -76,27 +76,27 @@ There are two common syntaxes for type casting:
 
 1. **Angle-bracket syntax** (not allowed in `.tsx` files):
   ```ts
-  let someValue: unknown = "hello";
-  let strLength: number = (<string>someValue).length;
-  ```
+    let someValue: unknown = "hello";
+      let strLength: number = (<string>someValue).length;
+        ```
 
-2. **`as` syntax** (recommended, especially in React projects):
-  ```ts
-  let someValue: unknown = "hello";
-  let strLength: number = (someValue as string).length;
-  ```
+        2. **`as` syntax** (recommended, especially in React projects):
+          ```ts
+            let someValue: unknown = "hello";
+              let strLength: number = (someValue as string).length;
+                ```
 
-Type casting does not change the runtime type of a value—it only affects how TypeScript checks types at compile time. Use casting carefully, as incorrect casts can lead to runtime errors.
+                Type casting does not change the runtime type of a value—it only affects how TypeScript checks types at compile time. Use casting carefully, as incorrect casts can lead to runtime errors.
 
-**Example: Casting to a more specific type**
-```ts
-function handle(input: string | number) {
-  if (typeof input === "string") {
-   // TypeScript knows input is a string here
-   console.log((input as string).toUpperCase());
-  }
-}
-```
+                **Example: Casting to a more specific type**
+                ```ts
+                function handle(input: string | number) {
+                  if (typeof input === "string") {
+                     // TypeScript knows input is a string here
+                        console.log((input as string).toUpperCase());
+                          }
+                          }
+                          ```
 
 ### 📘 What Is a `.d.ts` File?
 
