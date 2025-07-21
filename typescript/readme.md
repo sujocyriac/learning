@@ -315,3 +315,14 @@ numValue = 6; // ❌ Invalid: 6 is not in WholeNumbersTillFive
 - The intersection of union types results in a type that only allows values present in both unions.
 - This is useful for narrowing down possible values and enforcing stricter type constraints.
 
+Aliasing with subtypes
+```ts
+type DescriptionFunction =  () => string
+type CustomDate = Date & { getDescription: DescriptionFunction };
+
+
+const today: CustomDate = Object.assign(new Date, { getDescription: () => "hello" })
+const description = today.getDescription(); // "Date with value: ..."
+console.log(description);
+
+```
